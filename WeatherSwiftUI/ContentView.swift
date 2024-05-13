@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    var gradientColors: [Color] = [.gradientTop, .gradientBottom]
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ScrollView {
+            VStack {
+                CommonView()
+            }
         }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background {
+            LinearGradient(colors: gradientColors, 
+                           startPoint: .top,
+                           endPoint: .bottom).ignoresSafeArea()
+        }
     }
 }
 
