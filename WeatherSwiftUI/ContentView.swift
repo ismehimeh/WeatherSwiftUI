@@ -14,7 +14,9 @@ struct ContentView: View {
         ScrollView {
             VStack {
                 CommonView()
+                TodayForecastView()
             }
+            .padding([.leading, .trailing], 20)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background {
