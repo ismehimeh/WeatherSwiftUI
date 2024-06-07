@@ -24,7 +24,9 @@ struct TodayForecastView: View {
                     ForEach(hourlyForecasts, id: \.self) { forecast in
                         VStack(spacing: 10) {
                             Text(forecast.topText).fontWeight(.semibold)
-                            Image(systemName: forecast.iconName)
+                            Image(systemName: forecast.icon.rawValue)
+                                .symbolRenderingMode(.palette)
+                                .foregroundPalette(forecast.icon.palette)
                                 .font(.title2)
                                 .frame(width: 30, height: 30)
                             Text(forecast.bottomText).font(.title2).fontWeight(.semibold)
@@ -46,13 +48,13 @@ struct TodayForecastView: View {
 
 #Preview {
     let items: [HourlyForecastViewModel] = [
-        HourlyForecastViewModel(topText: "Now", iconName: "sun.max.fill", bottomText: "24°"),
-        HourlyForecastViewModel(topText: "19", iconName: "sun.max.fill", bottomText: "25°"),
-        HourlyForecastViewModel(topText: "19:56", iconName: "sunset.fill", bottomText: "Sunset"),
-        HourlyForecastViewModel(topText: "21", iconName: "cloud.fill", bottomText: "27°"),
-        HourlyForecastViewModel(topText: "22", iconName: "cloud.sun.fill", bottomText: "28°"),
-        HourlyForecastViewModel(topText: "23", iconName: "cloud.moon.fill", bottomText: "29°"),
-        HourlyForecastViewModel(topText: "00", iconName: "moon.stars.fill", bottomText: "30°"),
+        HourlyForecastViewModel(topText: "Now", icon: .sunMaxFill, bottomText: "24°"),
+        HourlyForecastViewModel(topText: "19", icon: .sunMaxFill, bottomText: "25°"),
+        HourlyForecastViewModel(topText: "19:56", icon: .sunset, bottomText: "Sunset"),
+        HourlyForecastViewModel(topText: "21", icon: .cloudFill, bottomText: "27°"),
+        HourlyForecastViewModel(topText: "22", icon: .cloudSunFill, bottomText: "28°"),
+        HourlyForecastViewModel(topText: "23", icon: .cloudMoonFill, bottomText: "29°"),
+        HourlyForecastViewModel(topText: "00", icon: .moonStarsFill, bottomText: "30°"),
     ]
     return TodayForecastView(hourlyForecasts: items)
 }

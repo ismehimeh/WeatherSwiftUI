@@ -9,6 +9,6 @@ import Foundation
 
 struct HourlyForecastViewModel: Hashable {
     let topText: String
-    let iconName: String
+    let icon: Icon
     let bottomText: String
 }
