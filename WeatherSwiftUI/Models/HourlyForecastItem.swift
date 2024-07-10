@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HourlyForecastViewModel: Hashable {
+struct HourlyForecastItem: Hashable {
     let topText: String
     let icon: Icon
     let bottomText: String
